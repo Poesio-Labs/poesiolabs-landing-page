@@ -4,9 +4,7 @@ import { useRef } from "react";
 import { brand, footer } from "@/content/site";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
-import { LogoMark } from "@/components/ui/Logo";
 import { Reveal } from "@/components/ui/Reveal";
-import { SplitHeading } from "@/components/ui/SplitHeading";
 import { gsap, useGSAP } from "@/lib/gsap";
 
 export function Footer() {
@@ -17,14 +15,6 @@ export function Footer() {
       const mm = gsap.matchMedia();
 
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        gsap
-          .timeline({
-            scrollTrigger: { trigger: ".footer__brand", start: "top bottom", end: "bottom bottom", scrub: 1 },
-          })
-          .from(".footer__brand-mark", { yPercent: 80, rotate: -12, opacity: 0, ease: "none" }, 0)
-          .from(".footer__brand-letter", { yPercent: 110, opacity: 0, stagger: 0.06, ease: "none" }, 0.1)
-          .from(".footer__brand-glow", { scale: 0.4, opacity: 0, ease: "none" }, 0);
-
         gsap.from(".footer__line", {
           scaleX: 0,
           duration: 1.6,
@@ -45,11 +35,7 @@ export function Footer() {
           <Reveal>
             <p className="footer__eyebrow">{footer.eyebrow}</p>
           </Reveal>
-          <SplitHeading
-            lines={[`${footer.headingLead} ${footer.headingAccent}`, footer.headingTail]}
-            className="footer__heading"
-            accentWords={[footer.headingAccent]}
-          />
+          <h2 className="footer__heading">{`${footer.headingLead} ${footer.headingAccent} ${footer.headingTail}`}</h2>
           <nav className="footer__links" aria-label="Footer">
             {footer.links.map((link) => (
               <a key={link.label} href={link.href} className="footer__link">
@@ -91,15 +77,7 @@ export function Footer() {
 
       <div className="footer__brand" aria-hidden="true">
         <span className="footer__brand-glow" />
-        <LogoMark className="footer__brand-mark" tone="mono" />
-        <span className="footer__brand-word">
-          {"Poesio".split("").map((letter, i) => (
-            <span key={i} className="footer__brand-letter">
-              {letter}
-            </span>
-          ))}
-          <span className="footer__brand-letter footer__brand-labs">Labs</span>
-        </span>
+        <p className="footer__brand-word">Poesio Labs</p>
       </div>
     </footer>
   );

@@ -7,52 +7,30 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SplitHeading } from "@/components/ui/SplitHeading";
 import { gsap, useGSAP } from "@/lib/gsap";
 
-const cssLength = (el: Element, name: string) =>
-  parseFloat(getComputedStyle(el).getPropertyValue(name)) || 0;
-
 export function TechStack() {
   const root = useRef<HTMLElement>(null);
-  const stack = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
 
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
-        const stackEl = stack.current!;
-        const cards = gsap.utils.toArray<HTMLElement>(".tech-card", stackEl);
-        const open = () => cssLength(stackEl, "--card-open");
-        const closed = () => cssLength(stackEl, "--card-closed");
-        const q = (card: HTMLElement, selector: string) => card.querySelector(selector);
-        const styles = getComputedStyle(stackEl);
-        const ink = styles.getPropertyValue("--ink").trim();
-        const violet = styles.getPropertyValue("--violet-500").trim();
+      mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
+        gsap.utils.toArray<HTMLElement>(".tech-card").forEach((card) => {
+          const media = card.querySelector(".tech-card__media img");
+          const body = card.querySelector(".tech-card__body");
 
-        const tl = gsap.timeline({
-          defaults: { ease: "power2.inOut", duration: 1 },
-          scrollTrigger: {
-            trigger: stackEl,
-            start: "center 55%",
-            end: () => `+=${(cards.length - 1) * window.innerHeight * 0.8}`,
-            pin: true,
-            scrub: 0.8,
-            invalidateOnRefresh: true,
-            snap: { snapTo: 1 / (cards.length - 1), duration: 0.6, ease: "power2.inOut" },
-          },
-        });
-
-        cards.slice(1).forEach((card, i) => {
-          const previous = cards[i];
-          const at = i;
-
-          tl.to(previous, { height: closed, scale: 0.97, opacity: 0.88 }, at)
-            .to(q(previous, ".tech-card__desc"), { autoAlpha: 0, height: 0, duration: 0.5 }, at)
-            .to(q(previous, ".tech-card__title"), { color: ink }, at)
-            .to(q(previous, ".tech-card__media img"), { scale: 1.15 }, at)
-            .to(card, { height: open, scale: 1, opacity: 1 }, at)
-            .fromTo(q(card, ".tech-card__media img"), { scale: 1.3 }, { scale: 1 }, at)
-            .to(q(card, ".tech-card__title"), { color: violet }, at)
-            .to(q(card, ".tech-card__desc"), { autoAlpha: 1, height: "auto", duration: 0.6 }, at + 0.4);
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: card,
+                start: "top 88%",
+                end: "top 42%",
+                scrub: 0.85,
+              },
+            })
+            .fromTo(card, { x: 180, autoAlpha: 0.2, scale: 0.96 }, { x: 0, autoAlpha: 1, scale: 1 }, 0)
+            .fromTo(body, { x: 48, autoAlpha: 0.15 }, { x: 0, autoAlpha: 1 }, 0.12)
+            .fromTo(media, { scale: 1.12 }, { scale: 1 }, 0);
         });
       });
     },
@@ -70,11 +48,11 @@ export function TechStack() {
           </Reveal>
         </header>
 
-        <div ref={stack} className="tech-stack">
+        <div className="tech-stack">
           {techCards.map((card, i) => (
-            <article key={card.title} className="tech-card" data-index={i}>
+            <article key={card.title} className="tech-card">
               <div className="tech-card__media">
-                <Image src={card.image} alt={card.alt} fill sizes="(max-width: 768px) 45vw, 460px" priority={i === 0} />
+                <Image src={card.image} alt={card.alt} fill sizes="(max-width: 768px) 45vw, 520px" priority={i === 0} />
               </div>
               <div className="tech-card__body">
                 <h3 className="tech-card__title">{card.title}</h3>

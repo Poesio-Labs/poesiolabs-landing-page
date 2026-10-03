@@ -1,21 +1,61 @@
-import type { ReactNode } from "react";
-import { Icon } from "./Icon";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
+import { ArrowUpRight } from "lucide-react";
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
-type ButtonProps = {
-  href: string;
+const buttonVariants = cva("ui-button", {
+  variants: {
+    variant: {
+      default: "ui-button--default",
+      secondary: "ui-button--secondary",
+      ghost: "ui-button--ghost",
+    },
+    size: {
+      md: "ui-button--md",
+      sm: "ui-button--sm",
+      lg: "ui-button--lg",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+    size: "md",
+  },
+});
+
+type SharedButtonProps = VariantProps<typeof buttonVariants> & {
+  asChild?: boolean;
   children: ReactNode;
-  size?: "md" | "sm";
-  className?: string;
+  showIcon?: boolean;
 };
 
-export function Button({ href, children, size = "md", className = "" }: ButtonProps) {
+type ButtonProps = SharedButtonProps &
+  ButtonHTMLAttributes<HTMLButtonElement> &
+  AnchorHTMLAttributes<HTMLAnchorElement> & {
+    href?: string;
+  };
+
+export function Button({
+  asChild = false,
+  children,
+  className,
+  href,
+  showIcon = true,
+  size,
+  variant,
+  ...props
+}: ButtonProps) {
+  const Comp = asChild ? Slot : href ? "a" : "button";
+
   return (
-    <a href={href} className={`btn btn--${size} ${className}`}>
-      <span className="btn__label">{children}</span>
-      <span className="btn__icon" aria-hidden="true">
-        <Icon name="arrowUpRight" size={size === "sm" ? 14 : 18} />
-        <Icon name="arrowUpRight" size={size === "sm" ? 14 : 18} />
-      </span>
-    </a>
+    <Comp href={href} className={cn(buttonVariants({ variant, size }), className)} {...props}>
+      <span className="ui-button__label">{children}</span>
+      {showIcon && (
+        <span className="ui-button__icon" aria-hidden="true">
+          <ArrowUpRight size={size === "sm" ? 14 : 18} />
+          <ArrowUpRight size={size === "sm" ? 14 : 18} />
+        </span>
+      )}
+    </Comp>
   );
 }

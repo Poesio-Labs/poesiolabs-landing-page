@@ -17,7 +17,12 @@ export function Navbar() {
 
   useMotionValueEvent(scrollY, "change", (current) => {
     const previous = scrollY.getPrevious() ?? 0;
-    setHidden(current > previous && current > 240 && !menuOpen);
+    const footer = document.querySelector(".footer");
+    const onFooter = !!footer && footer.getBoundingClientRect().top < window.innerHeight;
+
+    if (current < previous || !onFooter) setHidden(false);
+    else if (current > previous && !menuOpen) setHidden(true);
+
     setScrolled(current > 40);
   });
 
@@ -28,25 +33,22 @@ export function Navbar() {
   return (
     <motion.header
       className={`nav ${scrolled ? "nav--scrolled" : ""}`}
-      initial={{ y: -120, opacity: 0 }}
-      animate={{ y: hidden ? -240 : 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease, delay: hidden ? 0 : 0.2 }}
+      initial={false}
+      animate={{ y: hidden ? -90 : 0, opacity: 1 }}
+      transition={{ duration: 0.45, ease }}
     >
       <div className="nav__bar">
         <Logo className="nav__logo" />
 
         <nav className="nav__links" aria-label="Primary">
-          {navLinks.map((link, i) => (
-            <motion.a
+          {navLinks.map((link) => (
+            <a
               key={link.href}
               href={link.href}
               className="nav__link"
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease, delay: 0.5 + i * 0.08 }}
             >
               {link.label}
-            </motion.a>
+            </a>
           ))}
         </nav>
 

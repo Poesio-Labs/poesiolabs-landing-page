@@ -3,10 +3,10 @@ import type { IconName } from "@/components/ui/Icon";
 export const brand = {
   name: "Poesio Labs",
   shortName: "Poesio",
-  ctaLabel: "Talk to Poesio Labs",
+  ctaLabel: "Start a project",
   ctaHref: "mailto:hello@poesiolabs.com",
   tagline:
-    "We combine research, design, engineering, and technology to turn complex problems into useful digital products and systems.",
+    "We design and build polished web products, internal systems, and launch-ready platforms for teams that need senior product thinking and careful engineering.",
 };
 
 export const navLinks = [
@@ -17,82 +17,82 @@ export const navLinks = [
 ];
 
 export const services: { label: string; icon: IconName }[] = [
-  { label: "Product Research", icon: "search" },
-  { label: "Tech Solutions", icon: "cube" },
-  { label: "Digital Systems", icon: "flow" },
-  { label: "Software Development", icon: "code" },
-  { label: "Brand Systems", icon: "network" },
+  { label: "Research-led product strategy", icon: "search" },
+  { label: "High-conversion interfaces", icon: "cube" },
+  { label: "Operational software systems", icon: "flow" },
+  { label: "Web and mobile engineering", icon: "code" },
+  { label: "Brand-to-product systems", icon: "network" },
 ];
 
 export const techCards = [
   {
-    title: "Solve real problems",
-    description: "We start with the problem, not the technology.",
-    image: "/images/tech-solve.jpg",
-    alt: "A glowing key unlocking a purple puzzle piece",
+    title: "Frame the work before the build",
+    description: "We map user needs, operational constraints, and the business outcome before a single interface decision is made.",
+    image: "/images/tech-solve-v3.jpg",
+    alt: "A dark product strategy workspace with research notes and interface diagrams",
   },
   {
-    title: "Build with purpose",
-    description: "Every product we ship is shaped around a clear outcome for the people using it.",
-    image: "/images/tech-build.jpg",
-    alt: "An open laptop glowing in a dark room",
+    title: "Design the system, not only the screen",
+    description: "Interfaces, flows, states, content, and technical foundations are shaped as one coherent product system.",
+    image: "/images/tech-build-v3.jpg",
+    alt: "A premium web application dashboard displayed on a laptop in a dark studio",
   },
   {
-    title: "Connect ideas using Technology",
-    description: "We bridge ideas, people, and systems with technology that fits how they work.",
-    image: "/images/tech-connect.jpg",
-    alt: "A white robotic hand",
+    title: "Ship software teams can trust",
+    description: "We build reliable products with maintainable code, clear handoff, and enough polish to launch publicly.",
+    image: "/images/tech-connect-v3.jpg",
+    alt: "A precise engineering control room with connected product systems",
   },
 ];
 
 export const about = {
-  heading: ["We are", "building what", "comes next"],
+  heading: ["A senior", "product team", "for hard builds"],
   paragraphs: [
-    "is a software development company creating digital products, systems, and experiences that solve real problems for businesses across industries.",
-    "We work at the intersection of research, design, and engineering to build solutions that are useful, thoughtful, and built to last.",
-    "Our approach combines strategic thinking with technical execution, ensuring every project has a clear purpose and delivers meaningful results.",
-    "We believe technology should serve people, not the other way around. That's why we start with understanding, move through careful planning, and build with intention.",
+    "partners with founders, operators, and growing companies to turn messy product ideas into clear, usable, and scalable software.",
+    "We work across strategy, UX, interface design, full-stack engineering, and launch systems, so the product feels coherent from the first click to the backend workflow.",
+    "Every engagement starts with clarity: what needs to change, who needs to use it, which constraints matter, and what a successful launch should prove.",
+    "The result is software that feels considered, performs reliably, and gives teams a stronger foundation for the next phase of growth.",
   ],
 };
 
 export const approachSteps = [
-  { number: "01", title: "Discover", description: "Understand the problem, users, market, and opportunity." },
-  { number: "02", title: "Define", description: "Turn insights into a clear product or system direction." },
-  { number: "03", title: "Build", description: "Design and develop the solution with purpose." },
-  { number: "04", title: "Evolve", description: "Learn, improve, and continue moving forward." },
+  { number: "01", title: "Diagnose", description: "Clarify the user, business, workflow, and technical problem underneath the request." },
+  { number: "02", title: "Shape", description: "Turn the diagnosis into flows, content hierarchy, system architecture, and a launch plan." },
+  { number: "03", title: "Build", description: "Design and engineer the product with production states, responsive behavior, and clean handoff." },
+  { number: "04", title: "Refine", description: "Test the experience, remove friction, tighten performance, and prepare the product for real users." },
 ];
 
 export const industries = [
   {
     title: "Healthcare",
-    description: "We build digital tools that improve healthcare access, operations, and patient experiences.",
-    image: "/images/industry-healthcare.png",
+    description: "Patient portals, scheduling tools, intake systems, and operational dashboards that reduce friction for care teams.",
+    image: "/images/industry-healthcare-v3.png",
   },
   {
     title: "Hospitality & Travel",
-    description: "We build digital experiences that make booking, hosting, and travelling smoother for guests and operators.",
-    image: "/images/industry-hospitality.png",
+    description: "Booking flows, guest portals, itinerary systems, and operator tools that make service feel seamless.",
+    image: "/images/industry-hospitality-v3.png",
   },
   {
     title: "Environment & Sustainability",
-    description: "We create technology that helps organizations track, manage, and improve their environmental impact.",
-    image: "/images/industry-environment.png",
+    description: "Reporting tools, monitoring dashboards, and data products that make impact work easier to measure and act on.",
+    image: "/images/industry-environment-v3.png",
   },
   {
     title: "Logistics",
-    description: "We build systems that give logistics teams real-time visibility over routes, fleets, and deliveries.",
-    image: "/images/industry-logistics.png",
+    description: "Route visibility, fleet coordination, delivery workflows, and internal tools for teams moving physical goods.",
+    image: "/images/industry-logistics-v3.png",
   },
   {
     title: "Professional Services",
-    description: "We connect people, processes, and movement through smarter digital infrastructure.",
-    image: "/images/industry-professional.png",
+    description: "Client portals, workflow automation, proposal systems, and knowledge tools for high-trust service businesses.",
+    image: "/images/industry-professional-v3.png",
   },
   {
     title: "Media",
     subtitle: "and lots more..",
-    description: "We build digital products that help media businesses create, manage, distribute, and engage with content.",
-    image: "/images/industry-media.png",
+    description: "Publishing systems, creator tools, content operations, and audience experiences built for speed and clarity.",
+    image: "/images/industry-media-v3.png",
   },
 ];
 
@@ -125,11 +125,11 @@ export const faqs = [
 ];
 
 export const footer = {
-  eyebrow: "Let’s build together",
-  headingLead: "Ready to",
-  headingAccent: "build",
-  headingTail: "what’s next?",
-  pitch: "Partner with Poesio Labs to turn your ideas into impactful digital products and systems",
+  eyebrow: "Build with clarity",
+  headingLead: "Launch a product",
+  headingAccent: "worth",
+  headingTail: "trusting.",
+  pitch: "Bring us the problem, the messy workflow, or the product idea. We will help shape it into software that is clear, useful, and ready for real users.",
   links: [
     { label: "Home", href: "#top" },
     { label: "Company", href: "#about" },

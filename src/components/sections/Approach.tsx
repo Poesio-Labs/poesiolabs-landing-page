@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import type { PointerEvent } from "react";
 import { approachSteps } from "@/content/site";
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/Card";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { SplitHeading } from "@/components/ui/SplitHeading";
 
@@ -29,7 +30,6 @@ export function Approach() {
           {approachSteps.map((step) => (
             <motion.li
               key={step.number}
-              className="step-card"
               onPointerMove={trackPointer}
               variants={{
                 hidden: { opacity: 0, y: 48, scale: 0.96 },
@@ -38,10 +38,14 @@ export function Approach() {
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -6 }}
             >
-              <span className="step-card__number">{step.number}</span>
-              <h3 className="step-card__title">{step.title}</h3>
-              <p className="step-card__desc">{step.description}</p>
-              <span className="step-card__progress" aria-hidden="true" />
+              <Card className="step-card">
+                <CardHeader>
+                  <span className="step-card__number">{step.number}</span>
+                  <CardTitle className="step-card__title">{step.title}</CardTitle>
+                </CardHeader>
+                <CardDescription className="step-card__desc">{step.description}</CardDescription>
+                <span className="step-card__progress" aria-hidden="true" />
+              </Card>
             </motion.li>
           ))}
         </motion.ol>
