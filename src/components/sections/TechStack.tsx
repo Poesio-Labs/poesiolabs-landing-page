@@ -1,36 +1,46 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, type CSSProperties } from "react";
 import { brand, techCards } from "@/content/site";
 import { Reveal } from "@/components/ui/Reveal";
 import { SplitHeading } from "@/components/ui/SplitHeading";
-import { gsap, useGSAP } from "@/lib/gsap";
+import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 
 export function TechStack() {
   const root = useRef<HTMLElement>(null);
+  const stack = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
 
-      mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
-        gsap.utils.toArray<HTMLElement>(".tech-card").forEach((card) => {
-          const media = card.querySelector(".tech-card__media img");
-          const body = card.querySelector(".tech-card__body");
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        const cards = gsap.utils.toArray<HTMLElement>(".tech-card", stack.current);
+        let settleTops: number[] = [];
 
-          gsap
-            .timeline({
-              scrollTrigger: {
-                trigger: card,
-                start: "top 88%",
-                end: "top 42%",
-                scrub: 0.85,
-              },
-            })
-            .fromTo(card, { x: 180, autoAlpha: 0.2, scale: 0.96 }, { x: 0, autoAlpha: 1, scale: 1 }, 0)
-            .fromTo(body, { x: 48, autoAlpha: 0.15 }, { x: 0, autoAlpha: 1 }, 0.12)
-            .fromTo(media, { scale: 1.12 }, { scale: 1 }, 0);
+        const update = () => {
+          const viewport = window.innerHeight;
+          const arrival = cards.map((card, i) => {
+            const top = card.getBoundingClientRect().top;
+            return gsap.utils.clamp(0, 1, (viewport - top) / (viewport - settleTops[i]));
+          });
+
+          cards.forEach((card, i) => {
+            const covered = arrival.slice(i + 1).reduce((sum, value) => sum + value, 0);
+            card.style.setProperty("--covered", `${covered}`);
+          });
+        };
+
+        ScrollTrigger.create({
+          trigger: stack.current,
+          start: "top bottom",
+          end: "bottom top",
+          onUpdate: update,
+          onRefresh: () => {
+            settleTops = cards.map((card) => parseFloat(getComputedStyle(card).top) || 0);
+            update();
+          },
         });
       });
     },
@@ -48,11 +58,11 @@ export function TechStack() {
           </Reveal>
         </header>
 
-        <div className="tech-stack">
+        <div ref={stack} className="tech-stack">
           {techCards.map((card, i) => (
-            <article key={card.title} className="tech-card">
+            <article key={card.title} className="tech-card" style={{ "--card-index": i } as CSSProperties}>
               <div className="tech-card__media">
-                <Image src={card.image} alt={card.alt} fill sizes="(max-width: 768px) 45vw, 520px" priority={i === 0} />
+                <Image src={card.image} alt={card.alt} fill sizes="(max-width: 640px) 100vw, (max-width: 1279px) 48vw, 620px" priority={i === 0} />
               </div>
               <div className="tech-card__body">
                 <h3 className="tech-card__title">{card.title}</h3>
