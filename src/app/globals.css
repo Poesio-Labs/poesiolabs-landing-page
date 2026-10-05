@@ -2282,7 +2282,15 @@ body {
 }
 
 .tech__subtitle {
+  font-size: clamp(26px, 7.4vw, var(--fs-h1));
+  white-space: nowrap;
   color: #8f28bf;
+}
+
+.tech__subtitle .split__line,
+.tech__subtitle .split__mask,
+.tech__subtitle .split__word {
+  white-space: nowrap;
 }
 
 .tech__lead {
