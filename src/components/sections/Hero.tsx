@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import { brand } from "@/content/site";
 import { Button } from "@/components/ui/Button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import { gsap, useGSAP } from "@/lib/gsap";
 
 export function Hero() {
@@ -25,11 +24,7 @@ export function Hero() {
             .from(".hero__logo-mark", { x: 70, opacity: 0, scale: 0.9, rotate: -8, duration: 1.3 }, 0.05)
             .from(".hero__logo-orbit", { opacity: 0, strokeDashoffset: 520, duration: 1.4, stagger: 0.12 }, 0.18)
             .from(".hero__logo-node", { scale: 0, opacity: 0, duration: 0.7, stagger: 0.08, transformOrigin: "center" }, 0.55)
-            .from(".hero__copy > *", { y: 22, opacity: 0, duration: 0.9, stagger: 0.08 }, 0.15)
-            .from(".hero__panel", { y: 34, opacity: 0, scale: 0.96, duration: 1.1 }, 0.32)
-            .from(".hero__metric-grid div", { x: 24, opacity: 0, duration: 0.7, stagger: 0.08 }, 0.68)
-            .from(".hero__workflow span", { scaleX: 0, opacity: 0, duration: 0.9, stagger: 0.12, transformOrigin: "left center" }, 0.82)
-            .from(".hero__proof li", { y: 12, opacity: 0, duration: 0.6, stagger: 0.06 }, 1);
+            .from(".hero__copy > *", { y: 22, opacity: 0, duration: 0.9, stagger: 0.08 }, 0.15);
 
           gsap.to(".hero__sweep", {
             xPercent: 180,
@@ -50,20 +45,10 @@ export function Hero() {
           gsap.to(".hero__logo-node--one", { x: -34, y: 18, duration: 3.1, ease: "sine.inOut", repeat: -1, yoyo: true });
           gsap.to(".hero__logo-node--two", { x: 28, y: -24, duration: 3.7, ease: "sine.inOut", repeat: -1, yoyo: true });
           gsap.to(".hero__logo-node--three", { x: -18, y: -18, duration: 2.8, ease: "sine.inOut", repeat: -1, yoyo: true });
-          gsap.to(".hero__workflow span", {
-            opacity: 0.45,
-            duration: 1.7,
-            ease: "sine.inOut",
-            repeat: -1,
-            yoyo: true,
-            stagger: 0.18,
-          });
-
           gsap
             .timeline({
               scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: 0.6 },
             })
-            .to(".hero__panel", { yPercent: -12, ease: "none" }, 0)
             .to(".hero__banner", { yPercent: 16, opacity: 0.55, ease: "none" }, 0)
             .to(".hero__stripes", { yPercent: 10, opacity: 0.55, ease: "none" }, 0)
             .to(".hero__veil", { opacity: 1, ease: "none" }, 0);
@@ -71,7 +56,6 @@ export function Hero() {
           if (!fine) return;
 
           const layers = [
-            { el: ".hero__panel", depth: -12 },
             { el: ".hero__banner", depth: 14 },
             { el: ".hero__stripes", depth: 5 },
           ].map(({ el, depth }) => ({
@@ -172,15 +156,9 @@ export function Hero() {
               View process
             </Button>
           </div>
-          <ul className="hero__proof" aria-label="Capabilities">
-            <li>Research</li>
-            <li>UX systems</li>
-            <li>Frontend</li>
-            <li>Backend</li>
-            <li>Launch</li>
-          </ul>
         </div>
 
+        {/*
         <Card className="hero__panel">
           <CardHeader>
             <span className="hero__panel-kicker">Build operating system</span>
@@ -208,6 +186,7 @@ export function Hero() {
             </div>
           </CardContent>
         </Card>
+        */}
       </div>
     </section>
   );

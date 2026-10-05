@@ -2156,29 +2156,6 @@ body {
   margin-top: 28px;
 }
 
-.hero__proof {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 34px;
-  color: #7f7885;
-  font-size: 12px;
-}
-
-.hero__proof li {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.hero__proof li:not(:last-child)::after {
-  content: "";
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: var(--violet-500);
-}
-
 .hero__panel {
   padding: 18px;
   background: #0a0a0a;
@@ -2679,10 +2656,6 @@ body {
 
   .hero__copy p {
     font-size: 15px;
-  }
-
-  .hero__proof {
-    margin-top: 24px;
   }
 
   .hero__panel {
