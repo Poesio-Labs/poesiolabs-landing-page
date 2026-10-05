@@ -3,7 +3,7 @@ import type { IconName } from "@/components/ui/Icon";
 export const brand = {
   name: "Poesio Labs",
   shortName: "Poesio",
-  ctaLabel: "Start a project",
+  ctaLabel: "Talk to Poesio Labs",
   ctaHref: "mailto:hello@poesiolabs.com",
   tagline:
     "We design and build polished web products, internal systems, and launch-ready platforms for teams that need senior product thinking and careful engineering.",
@@ -125,10 +125,10 @@ export const faqs = [
 ];
 
 export const footer = {
-  eyebrow: "Build with clarity",
-  headingLead: "Launch a product",
-  headingAccent: "worth",
-  headingTail: "trusting.",
+  eyebrow: "Let’s build together",
+  headingLead: "Ready to",
+  headingAccent: "build",
+  headingTail: "what’s next?",
   pitch: "Bring us the problem, the messy workflow, or the product idea. We will help shape it into software that is clear, useful, and ready for real users.",
   links: [
     { label: "Home", href: "#top" },

@@ -2501,6 +2501,10 @@ body {
   letter-spacing: 0;
 }
 
+.footer__heading-accent {
+  color: var(--violet-300);
+}
+
 .footer__brand-word {
   font-family: var(--font-brand);
   font-size: clamp(58px, 15.7vw, 330px);

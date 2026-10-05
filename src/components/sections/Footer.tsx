@@ -35,7 +35,10 @@ export function Footer() {
           <Reveal>
             <p className="footer__eyebrow">{footer.eyebrow}</p>
           </Reveal>
-          <h2 className="footer__heading">{`${footer.headingLead} ${footer.headingAccent} ${footer.headingTail}`}</h2>
+          <h2 className="footer__heading">
+            {footer.headingLead} <span className="footer__heading-accent">{footer.headingAccent}</span>{" "}
+            {footer.headingTail}
+          </h2>
           <nav className="footer__links" aria-label="Footer">
             {footer.links.map((link) => (
               <a key={link.label} href={link.href} className="footer__link">
