@@ -1940,12 +1940,14 @@ body {
   padding: 0 8px 0 14px;
   border-color: rgba(255, 255, 255, 0.14);
   border-radius: 6px;
-  background: #030303;
+  background: rgba(6, 3, 10, 0.28);
+  backdrop-filter: blur(20px) saturate(150%) brightness(0.8);
   box-shadow: none;
 }
 
 .nav--scrolled .nav__bar {
-  background: #030303;
+  background: rgba(6, 3, 10, 0.4);
+  backdrop-filter: blur(20px) saturate(150%) brightness(0.4);
   box-shadow: none;
 }
 
@@ -2550,7 +2552,7 @@ body {
     height: var(--nav-height);
     padding-inline: 14px;
     border-radius: 0;
-    background: rgba(3, 3, 3, 0.94);
+    background: rgba(6, 3, 10, 0.36);
   }
 
   .nav__cta {
