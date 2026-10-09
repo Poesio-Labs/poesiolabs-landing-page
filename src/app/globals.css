@@ -2198,7 +2198,6 @@ body {
 }
 
 .tech__header {
-  max-width: 760px;
   margin-inline: auto;
   margin-bottom: clamp(30px, 4vw, 54px);
 }
@@ -2211,7 +2210,13 @@ body {
 .tech__subtitle {
   font-size: min(var(--fs-h1), calc((100vw - 2 * var(--gutter)) / 13.6));
   text-wrap: balance;
-  color: #8f28bf;
+  color: var(--brand-purple);
+}
+
+@media (min-width: 641px) {
+  .tech__subtitle {
+    white-space: nowrap;
+  }
 }
 
 .tech__lead {
