@@ -10,6 +10,7 @@
   --violet-600: #8a3cf7;
   --violet-700: #6a28c9;
   --violet-50: #f8f4fe;
+  --brand-purple: #8a38f5;
   --pink-500: #f046dc;
   --ink: #1f0a3d;
   --night-900: #12051f;
@@ -137,7 +138,7 @@ img {
   font-weight: 400;
   line-height: 1.04;
   letter-spacing: -0.035em;
-  color: var(--violet-500);
+  color: var(--brand-purple);
 }
 
 /* ---------- Primitives: logo ---------- */
@@ -2295,7 +2296,7 @@ body {
   max-width: 10em;
   font-size: clamp(34px, 3.7vw, 58px);
   line-height: 1;
-  color: #050505;
+  color: var(--brand-purple);
   letter-spacing: 0;
 }
 
@@ -2443,7 +2444,7 @@ body {
 }
 
 .faq__title {
-  color: #8f28bf;
+  color: var(--brand-purple);
 }
 
 .ui-accordion__trigger {
@@ -2496,7 +2497,7 @@ body {
 }
 
 .footer__heading-accent {
-  color: var(--violet-300);
+  color: var(--brand-purple);
 }
 
 .footer__brand-word {
