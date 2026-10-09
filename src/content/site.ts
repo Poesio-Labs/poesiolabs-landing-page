@@ -28,19 +28,19 @@ export const techCards = [
   {
     title: "Frame the work before the build",
     description: "We map user needs, operational constraints, and the business outcome before a single interface decision is made.",
-    image: "/images/tech-solve-v3.jpg",
+    image: "/images/frame1.png",
     alt: "A dark product strategy workspace with research notes and interface diagrams",
   },
   {
     title: "Design the system, not only the screen",
     description: "Interfaces, flows, states, content, and technical foundations are shaped as one coherent product system.",
-    image: "/images/tech-build-v3.jpg",
+    image: "/images/frame2.png",
     alt: "A premium web application dashboard displayed on a laptop in a dark studio",
   },
   {
     title: "Ship software teams can trust",
     description: "We build reliable products with maintainable code, clear handoff, and enough polish to launch publicly.",
-    image: "/images/tech-connect-v3.jpg",
+    image: "/images/frame3.png",
     alt: "A precise engineering control room with connected product systems",
   },
 ];
@@ -66,12 +66,12 @@ export const industries = [
   {
     title: "Healthcare",
     description: "Patient portals, scheduling tools, intake systems, and operational dashboards that reduce friction for care teams.",
-    image: "/images/industry-healthcare-v3.png",
+    image: "/images/industries/healthcare.png",
   },
   {
     title: "Hospitality & Travel",
     description: "Booking flows, guest portals, itinerary systems, and operator tools that make service feel seamless.",
-    image: "/images/industry-hospitality-v3.png",
+    image: "/images/industries/lifestyle.png",
   },
   {
     title: "Environment & Sustainability",
@@ -81,18 +81,18 @@ export const industries = [
   {
     title: "Logistics",
     description: "Route visibility, fleet coordination, delivery workflows, and internal tools for teams moving physical goods.",
-    image: "/images/industry-logistics-v3.png",
+    image: "/images/industries/logistics.png",
   },
   {
     title: "Professional Services",
     description: "Client portals, workflow automation, proposal systems, and knowledge tools for high-trust service businesses.",
-    image: "/images/industry-professional-v3.png",
+    image: "/images/industries/services.png",
   },
   {
     title: "Media",
     subtitle: "and lots more..",
     description: "Publishing systems, creator tools, content operations, and audience experiences built for speed and clarity.",
-    image: "/images/industry-media-v3.png",
+    image: "/images/industries/media.png",
   },
 ];
 
