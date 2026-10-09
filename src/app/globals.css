@@ -1935,12 +1935,14 @@ body {
 }
 
 .nav__bar {
+  --nav-clearance: 4px;
+  --nav-cta-radius: 6px;
   width: min(100% - var(--gutter) * 2, 900px);
   height: var(--nav-height);
   gap: 18px;
   padding: 0 8px 0 14px;
   border-color: rgba(255, 255, 255, 0.14);
-  border-radius: 6px;
+  border-radius: calc(var(--nav-cta-radius) + var(--nav-clearance) + 1px);
   background: rgba(6, 3, 10, 0.28);
   backdrop-filter: blur(20px) saturate(150%) brightness(0.8);
   box-shadow: none;
@@ -1985,7 +1987,22 @@ body {
 }
 
 .nav__cta {
+  min-height: calc(var(--nav-height) - 2px - 2 * var(--nav-clearance));
   margin-left: auto;
+  border-radius: var(--nav-cta-radius);
+}
+
+@media (min-width: 1101px) {
+  .nav__bar {
+    padding-right: var(--nav-clearance);
+  }
+
+  .nav__links {
+    position: absolute;
+    left: 50%;
+    margin: 0;
+    translate: -50% 0;
+  }
 }
 
 .nav__toggle {
