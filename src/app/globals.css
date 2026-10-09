@@ -2355,6 +2355,21 @@ body {
   display: none;
 }
 
+.about__card {
+  transition:
+    border-color 0.5s var(--ease-out),
+    box-shadow 0.5s var(--ease-out);
+}
+
+.about__card:hover,
+.about__card:focus-within {
+  border-color: rgba(138, 56, 245, 0.6);
+  box-shadow:
+    0 0 0 1px rgba(138, 56, 245, 0.3),
+    0 0 48px -8px rgba(138, 56, 245, 0.5),
+    0 30px 90px -40px rgba(138, 56, 245, 0.55);
+}
+
 .about__card strong {
   color: var(--white);
 }
