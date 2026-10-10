@@ -2210,7 +2210,10 @@ body {
 .tech {
   padding-block: clamp(70px, 8vw, 120px);
   border-bottom: 1px solid rgba(3, 3, 3, 0.1);
-  background: #ffffff;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+    url("/brand/Company.png") center / cover no-repeat,
+    #ffffff;
   color: #050505;
 }
 
