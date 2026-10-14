@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef } from "react";
 import { brand, footer } from "@/content/site";
 import { Button } from "@/components/ui/Button";
@@ -80,7 +81,7 @@ export function Footer() {
 
       <div className="footer__brand" aria-hidden="true">
         <span className="footer__brand-glow" />
-        <p className="footer__brand-word">Poesio Labs</p>
+        <Image src="/brand/wordmark.png" alt="" width={1637} height={263} sizes="100vw" className="footer__brand-word" />
       </div>
     </footer>
   );
