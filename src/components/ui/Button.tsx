@@ -1,6 +1,7 @@
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
@@ -45,10 +46,9 @@ export function Button({
   variant,
   ...props
 }: ButtonProps) {
-  const Comp = asChild ? Slot : href ? "a" : "button";
-
-  return (
-    <Comp href={href} className={cn(buttonVariants({ variant, size }), className)} {...props}>
+  const classes = cn(buttonVariants({ variant, size }), className);
+  const content = (
+    <>
       <span className="ui-button__label">{children}</span>
       {showIcon && (
         <span className="ui-button__icon" aria-hidden="true">
@@ -56,6 +56,22 @@ export function Button({
           <ArrowUpRight size={size === "sm" ? 14 : 18} />
         </span>
       )}
+    </>
+  );
+
+  if (!asChild && href?.startsWith("/")) {
+    return (
+      <Link href={href} className={classes} {...props}>
+        {content}
+      </Link>
+    );
+  }
+
+  const Comp = asChild ? Slot : href ? "a" : "button";
+
+  return (
+    <Comp href={href} className={classes} {...props}>
+      {content}
     </Comp>
   );
 }

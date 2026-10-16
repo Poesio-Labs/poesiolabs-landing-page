@@ -33,6 +33,12 @@ const paths = {
       <path d="m7 7 3 3M17 7l-3 3M7 17l3-3M17 17l-3-3" />
     </>
   ),
+  mail: (
+    <>
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m4 7 8 6 8-6" />
+    </>
+  ),
   arrowUpRight: <path d="M7 17 17 7M8 7h9v9" />,
   chevronLeft: <path d="m15 5-7 7 7 7" />,
   chevronRight: <path d="m9 5 7 7-7 7" />,

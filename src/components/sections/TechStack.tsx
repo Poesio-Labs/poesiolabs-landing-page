@@ -51,7 +51,7 @@ export function TechStack() {
     <section ref={root} className="tech">
       <div className="container tech__inner">
         <header className="tech__header">
-          <SplitHeading as="h1" lines={["Technology"]} className="tech__title" />
+          <SplitHeading lines={["Technology"]} className="tech__title" />
           <SplitHeading lines={["should move things forward"]} className="tech__subtitle" delay={0.2} />
           <Reveal delay={0.5}>
             <p className="tech__lead">{brand.tagline}</p>
@@ -62,7 +62,7 @@ export function TechStack() {
           {techCards.map((card, i) => (
             <article key={card.title} className="tech-card" style={{ "--card-index": i } as CSSProperties}>
               <div className="tech-card__media">
-                <Image src={card.image} alt={card.alt} fill sizes="(max-width: 640px) 100vw, (max-width: 1279px) 48vw, 620px" priority={i === 0} />
+                <Image src={card.image} alt={card.alt} fill sizes="(max-width: 640px) 100vw, (max-width: 1279px) 48vw, 620px" />
               </div>
               <div className="tech-card__body">
                 <h3 className="tech-card__title">{card.title}</h3>

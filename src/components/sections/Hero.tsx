@@ -197,7 +197,7 @@ export function Hero() {
           </h1>
           <p>We build better systems, and experiences that solve real problems and move technology forward.</p>
           <div className="hero__actions">
-            <Button href="#about" size="lg" variant="secondary" showIcon={false}>
+            <Button href="/about" size="lg" variant="secondary" showIcon={false}>
               Explore {brand.name}
             </Button>
             <Button href={brand.ctaHref} size="lg">

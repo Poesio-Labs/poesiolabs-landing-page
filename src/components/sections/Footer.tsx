@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 import { brand, footer } from "@/content/site";
 import { Button } from "@/components/ui/Button";
@@ -42,9 +43,9 @@ export function Footer() {
           </h2>
           <nav className="footer__links" aria-label="Footer">
             {footer.links.map((link) => (
-              <a key={link.label} href={link.href} className="footer__link">
+              <Link key={link.label} href={link.href} className="footer__link">
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
         </div>
@@ -54,15 +55,17 @@ export function Footer() {
           <Button href={brand.ctaHref} className="footer__button">
             {brand.ctaLabel}
           </Button>
-          <ul className="footer__socials">
-            {footer.socials.map((social) => (
-              <li key={social.label}>
-                <a href={social.href} aria-label={social.label} className="footer__social">
-                  <Icon name={social.icon} size={22} />
-                </a>
-              </li>
-            ))}
-          </ul>
+          {footer.socials.length > 0 && (
+            <ul className="footer__socials">
+              {footer.socials.map((social) => (
+                <li key={social.label}>
+                  <a href={social.href} aria-label={social.label} className="footer__social">
+                    <Icon name={social.icon} size={22} />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
         </Reveal>
       </div>
 
@@ -72,7 +75,7 @@ export function Footer() {
           <ul>
             {footer.legal.map((item) => (
               <li key={item.label}>
-                <a href={item.href}>{item.label}</a>
+                <Link href={item.href}>{item.label}</Link>
               </li>
             ))}
           </ul>

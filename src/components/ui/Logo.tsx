@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useId } from "react";
 
 type Stop = [offset: number, color: string, opacity?: number];
@@ -48,11 +49,11 @@ export function LogoMark({ className, tone = "brand" }: { className?: string; to
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <a href="#top" className={`logo ${className}`} aria-label="Poesio Labs home">
+    <Link href="/" className={`logo ${className}`} aria-label="Poesio Labs home">
       <LogoMark className="logo__mark" />
       <span className="logo__word">
         Poes<span className="logo__i">ı</span>o<span className="logo__labs">Labs</span>
       </span>
-    </a>
+    </Link>
   );
 }

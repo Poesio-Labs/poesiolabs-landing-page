@@ -15,15 +15,30 @@ const pad = (value: number) => String(value).padStart(2, "0");
 
 type Industry = (typeof industries)[number];
 
-function IndustryCard({ industry, priority = false }: { industry: Industry; priority?: boolean }) {
+export function IndustryCard({
+  industry,
+  priority = false,
+  sizes = "(max-width: 1279px) 90vw, 520px",
+}: {
+  industry: Industry;
+  priority?: boolean;
+  sizes?: string;
+}) {
   return (
     <>
       <div className="industry-card__media">
-        <Image src={industry.image} alt="" fill sizes="(max-width: 1279px) 90vw, 520px" priority={priority} />
+        <Image
+          src={industry.image}
+          alt={industry.alt}
+          fill
+          sizes={sizes}
+          priority={priority}
+          style={"position" in industry ? { objectPosition: industry.position } : undefined}
+        />
       </div>
       <h3 className="industry-card__title">
         {industry.title}
-        {"subtitle" in industry && <span className="industry-card__subtitle">{industry.subtitle}</span>}
+        {"subtitle" in industry && <span className="industry-card__subtitle"> {industry.subtitle}</span>}
       </h3>
       <p className="industry-card__desc">{industry.description}</p>
     </>
@@ -121,7 +136,7 @@ function IndustryCarousel() {
             }}
             aria-live="polite"
           >
-            <IndustryCard industry={industry} priority={index === 0} />
+            <IndustryCard industry={industry} />
           </motion.div>
         </AnimatePresence>
 
