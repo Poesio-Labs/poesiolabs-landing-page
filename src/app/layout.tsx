@@ -4,7 +4,7 @@ import { MotionProvider } from "@/components/MotionProvider";
 import { Footer } from "@/components/sections/Footer";
 import { Navbar } from "@/components/sections/Navbar";
 import { homePage } from "@/content/pages";
-import { brand } from "@/content/site";
+import { brand, footer } from "@/content/site";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -51,6 +51,7 @@ const structuredData = {
       logo: `${brand.url}/brand/poesio-labs-logo.png`,
       email: brand.email,
       description: homePage.description,
+      sameAs: footer.socials.map((social) => social.href),
       contactPoint: [
         { "@type": "ContactPoint", contactType: "customer service", email: brand.email },
         { "@type": "ContactPoint", contactType: "partnerships", email: brand.partnershipEmail },

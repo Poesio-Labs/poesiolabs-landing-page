@@ -59,7 +59,13 @@ export function Footer() {
             <ul className="footer__socials">
               {footer.socials.map((social) => (
                 <li key={social.label}>
-                  <a href={social.href} aria-label={social.label} className="footer__social">
+                  <a
+                    href={social.href}
+                    aria-label={`${brand.name} on ${social.label}`}
+                    className="footer__social"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Icon name={social.icon} size={22} />
                   </a>
                 </li>

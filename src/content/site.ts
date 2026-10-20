@@ -146,7 +146,9 @@ export const footer = {
   headingTail: "what’s next?",
   pitch: "Partner with Poesio Labs to turn your ideas into impactful digital products and systems",
   links: [{ label: "Home", href: "/" }, ...navLinks],
-  socials: [] as { label: string; icon: IconName; href: string }[],
+  socials: [
+    { label: "LinkedIn", icon: "linkedin" as IconName, href: "https://www.linkedin.com/company/poesio-labs/" },
+  ],
   legal: [
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms of Service", href: "/terms" },
