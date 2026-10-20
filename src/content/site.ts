@@ -42,14 +42,14 @@ export const techCards = [
   {
     title: "Build with purpose",
     description: "Every product we ship is shaped around a clear outcome for the people using it.",
-    image: "/images/illustrations/build-with-purpose.png",
-    alt: "Engineer modelling mechanical parts in design software across two monitors",
+    image: "/images/illustrations/buildwithpurpose.png",
+    alt: "Layered white curved paper forms in soft light",
   },
   {
     title: "Connect ideas using Technology",
     description: "We bridge ideas, people, and systems with technology that fits how they work.",
-    image: "/images/illustrations/connect-ideas-using-technology.png",
-    alt: "Two people smiling while working together on a laptop",
+    image: "/images/illustrations/connectideas.png",
+    alt: "Glowing processor chip on a dark circuit board with gold traces",
   },
 ];
 
