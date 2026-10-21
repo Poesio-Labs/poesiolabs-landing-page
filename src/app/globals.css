@@ -2205,7 +2205,7 @@ body {
   border-bottom: 1px solid rgba(3, 3, 3, 0.1);
   background:
     linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
-    url("/brand/Company.png") center / cover no-repeat,
+    url("/brand/company-bg.jpg") center / cover no-repeat,
     #ffffff;
   color: #050505;
 }
