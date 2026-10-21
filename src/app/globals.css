@@ -2753,6 +2753,30 @@ body {
   color: #050505;
 }
 
+.footer__social {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.footer__socials {
+  gap: 12px;
+}
+
+.footer__legal a {
+  display: inline-block;
+  padding-block: 6px;
+}
+
+.footer__legal {
+  align-items: center;
+}
+
+@media (min-width: 1280px) {
+  .footer__socials {
+    margin-left: -11px;
+  }
+}
+
 .nav__link.is-active {
   color: var(--white);
 }
