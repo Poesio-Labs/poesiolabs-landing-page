@@ -9,7 +9,12 @@ import { Backdrop } from "@/components/ui/Backdrop";
 import { homePage } from "@/content/pages";
 import { pageMetadata } from "@/lib/seo";
 
-export const metadata = pageMetadata({ ...homePage, path: "/", absoluteTitle: true });
+export const metadata = pageMetadata({
+  title: homePage.seoTitle,
+  description: homePage.description,
+  path: "/",
+  imageAlt: `Poesio Labs — ${homePage.ogTitle}`,
+});
 
 export default function Home() {
   return (
@@ -18,11 +23,11 @@ export default function Home() {
       <ServiceMarquee />
       <Backdrop>
         <TechStack />
-        <About />
+        <About moreLink={{ label: "More about Poesio Labs", href: "/about" }} />
       </Backdrop>
-      <Approach />
-      <Industries />
-      <Faq />
+      <Approach moreLink={{ label: "Explore our services", href: "/services" }} />
+      <Industries moreLink={{ label: "See all industries we serve", href: "/industries" }} />
+      <Faq moreLink={{ label: "Still have a question? Contact us", href: "/contact" }} />
     </>
   );
 }

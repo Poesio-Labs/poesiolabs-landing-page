@@ -4,7 +4,12 @@ import { pageMetadata } from "@/lib/seo";
 
 const page = legalPages.cookies;
 
-export const metadata = pageMetadata({ title: page.title, description: page.description, path: "/cookies", noindex: true });
+export const metadata = pageMetadata({
+  title: `${page.title} | Poesio Labs`,
+  description: page.description,
+  path: "/cookies",
+  noindex: true,
+});
 
 export default function CookiesPage() {
   return <LegalPage page={page} />;

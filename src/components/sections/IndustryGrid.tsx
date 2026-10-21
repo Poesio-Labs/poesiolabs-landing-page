@@ -6,6 +6,7 @@ export function IndustryGrid() {
   return (
     <section className="industries industries--page section" aria-label="Industries">
       <div className="container">
+        <h2 className="sr-only">Industries we serve</h2>
         <ul className="industry-grid">
           {industries.map((industry, i) => (
             <li key={industry.title}>

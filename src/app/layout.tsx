@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, Lexend } from "next/font/google";
+import { JsonLd } from "@/components/JsonLd";
 import { MotionProvider } from "@/components/MotionProvider";
 import { Footer } from "@/components/sections/Footer";
 import { Navbar } from "@/components/sections/Navbar";
 import { homePage } from "@/content/pages";
 import { brand, footer } from "@/content/site";
+import { xHandle } from "@/lib/seo";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -22,7 +24,7 @@ const lexend = Lexend({
 
 export const metadata: Metadata = {
   metadataBase: new URL(brand.url),
-  title: { default: homePage.title, template: `%s | ${brand.name}` },
+  title: { default: homePage.seoTitle, template: `%s | ${brand.name}` },
   description: homePage.description,
   applicationName: brand.name,
   openGraph: {
@@ -30,12 +32,13 @@ export const metadata: Metadata = {
     siteName: brand.name,
     locale: "en_US",
     url: "/",
-    title: homePage.title,
+    title: homePage.seoTitle,
     description: homePage.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: homePage.title,
+    site: xHandle,
+    title: homePage.seoTitle,
     description: homePage.description,
   },
 };
@@ -48,7 +51,12 @@ const structuredData = {
       "@id": `${brand.url}/#organization`,
       name: brand.name,
       url: brand.url,
-      logo: `${brand.url}/brand/poesio-labs-logo.png`,
+      logo: {
+        "@type": "ImageObject",
+        url: `${brand.url}/brand/poesio-labs-logo.png`,
+        width: 1500,
+        height: 1000,
+      },
       email: brand.email,
       description: homePage.description,
       sameAs: footer.socials.map((social) => social.href),
@@ -75,10 +83,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${dmSans.variable} ${lexend.variable}`}>
       <body>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
-        />
+        <JsonLd data={structuredData} />
         <MotionProvider>
           <Navbar />
           <main id="main">{children}</main>

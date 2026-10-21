@@ -1,22 +1,31 @@
+import { JsonLd } from "@/components/JsonLd";
 import { ContactCards } from "@/components/sections/ContactCards";
 import { Faq } from "@/components/sections/Faq";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { Reveal } from "@/components/ui/Reveal";
 import { contactPage } from "@/content/pages";
 import { brand } from "@/content/site";
-import { pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata = pageMetadata({ ...contactPage, path: "/contact" });
+export const metadata = pageMetadata({
+  title: contactPage.seoTitle,
+  description: contactPage.description,
+  path: "/contact",
+  hasOwnImage: true,
+  imageAlt: `Poesio Labs — ${contactPage.heading}`,
+});
 
 const hrefFor = { email: brand.ctaHref, partnershipEmail: brand.partnershipHref };
 
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd("Contact", "/contact")} />
       <PageHeader eyebrow={contactPage.eyebrow} heading={contactPage.heading} lead={contactPage.lead} />
 
       <section className="section section--dark section--contact">
         <div className="container">
+          <h2 className="sr-only">Email Poesio Labs</h2>
           <ContactCards
             channels={contactPage.channels.map((channel) => ({
               title: channel.title,

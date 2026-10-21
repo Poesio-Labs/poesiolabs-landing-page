@@ -4,9 +4,10 @@ import { useState } from "react";
 import { about, brand } from "@/content/site";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { SectionMoreLink, type MoreLink } from "@/components/ui/SectionMoreLink";
 import { SplitHeading } from "@/components/ui/SplitHeading";
 
-export function About() {
+export function About({ moreLink }: { moreLink?: MoreLink } = {}) {
   const [expanded, setExpanded] = useState(false);
   const [lead, ...rest] = about.paragraphs;
 
@@ -38,6 +39,7 @@ export function About() {
             </button>
           </Reveal>
         </div>
+        <SectionMoreLink link={moreLink} />
       </div>
     </section>
   );

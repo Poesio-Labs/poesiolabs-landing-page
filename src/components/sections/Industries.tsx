@@ -7,6 +7,7 @@ import { industries } from "@/content/site";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { SectionMoreLink, type MoreLink } from "@/components/ui/SectionMoreLink";
 import { SplitHeading } from "@/components/ui/SplitHeading";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -173,13 +174,14 @@ function IndustryList() {
   );
 }
 
-export function Industries() {
+export function Industries({ moreLink }: { moreLink?: MoreLink } = {}) {
   return (
     <section className="industries section" id="industries">
       <div className="container">
         <SectionLabel>Industries We Serve</SectionLabel>
         <IndustryCarousel />
         <IndustryList />
+        <SectionMoreLink link={moreLink} />
       </div>
     </section>
   );

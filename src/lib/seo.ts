@@ -1,26 +1,32 @@
 import type { Metadata } from "next";
 import { brand } from "@/content/site";
 
-const socialImage = {
-  url: "/opengraph-image",
-  width: 1200,
-  height: 630,
-  alt: "Poesio Labs — Engineering the digital future",
-};
+export const xHandle = "@poesiolabs";
+
+export const ogImageSize = { width: 1200, height: 630 };
 
 type PageSeo = {
   title: string;
   description: string;
   path: string;
-  absoluteTitle?: boolean;
+  imageAlt?: string;
+  hasOwnImage?: boolean;
   noindex?: boolean;
 };
 
-export function pageMetadata({ title, description, path, absoluteTitle = false, noindex = false }: PageSeo): Metadata {
-  const fullTitle = absoluteTitle ? title : `${title} | ${brand.name}`;
+export function pageMetadata({
+  title,
+  description,
+  path,
+  imageAlt = `${brand.name} — Engineering the digital future`,
+  hasOwnImage = false,
+  noindex = false,
+}: PageSeo): Metadata {
+  const imageUrl = `${hasOwnImage && path !== "/" ? path : ""}/opengraph-image`;
+  const image = { url: imageUrl, ...ogImageSize, alt: imageAlt, type: "image/png" };
 
   return {
-    title: absoluteTitle ? { absolute: title } : title,
+    title: { absolute: title },
     description,
     alternates: { canonical: path },
     openGraph: {
@@ -28,16 +34,28 @@ export function pageMetadata({ title, description, path, absoluteTitle = false, 
       siteName: brand.name,
       locale: "en_US",
       url: path,
-      title: fullTitle,
+      title,
       description,
-      images: [socialImage],
+      images: [image],
     },
     twitter: {
       card: "summary_large_image",
-      title: fullTitle,
+      site: xHandle,
+      title,
       description,
-      images: [socialImage.url],
+      images: [image],
     },
     ...(noindex && { robots: { index: false, follow: true } }),
+  };
+}
+
+export function breadcrumbJsonLd(name: string, path: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: brand.url },
+      { "@type": "ListItem", position: 2, name, item: new URL(path, brand.url).toString() },
+    ],
   };
 }

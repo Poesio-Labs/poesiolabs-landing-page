@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { JsonLd } from "@/components/JsonLd";
 import { About } from "@/components/sections/About";
 import { Approach } from "@/components/sections/Approach";
 import { CtaBand } from "@/components/sections/CtaBand";
@@ -9,13 +10,20 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { SplitHeading } from "@/components/ui/SplitHeading";
 import { aboutPage } from "@/content/pages";
 import { brand, techCards } from "@/content/site";
-import { pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata = pageMetadata({ ...aboutPage, path: "/about" });
+export const metadata = pageMetadata({
+  title: aboutPage.seoTitle,
+  description: aboutPage.description,
+  path: "/about",
+  hasOwnImage: true,
+  imageAlt: `Poesio Labs — ${aboutPage.heading}`,
+});
 
 export default function AboutPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd("About", "/about")} />
       <PageHeader eyebrow={aboutPage.eyebrow} heading={aboutPage.heading} lead={aboutPage.lead}>
         <Button href={brand.ctaHref} size="lg">
           {brand.ctaLabel}

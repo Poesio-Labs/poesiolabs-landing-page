@@ -1,3 +1,4 @@
+import { JsonLd } from "@/components/JsonLd";
 import { ContactCards } from "@/components/sections/ContactCards";
 import { PageHeader } from "@/components/sections/PageHeader";
 import { Button } from "@/components/ui/Button";
@@ -6,13 +7,20 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { SplitHeading } from "@/components/ui/SplitHeading";
 import { partnershipsPage } from "@/content/pages";
 import { brand } from "@/content/site";
-import { pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata = pageMetadata({ ...partnershipsPage, path: "/partnerships" });
+export const metadata = pageMetadata({
+  title: partnershipsPage.seoTitle,
+  description: partnershipsPage.description,
+  path: "/partnerships",
+  hasOwnImage: true,
+  imageAlt: `Poesio Labs — ${partnershipsPage.heading}`,
+});
 
 export default function PartnershipsPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd("Partnerships", "/partnerships")} />
       <PageHeader eyebrow={partnershipsPage.eyebrow} heading={partnershipsPage.heading} lead={partnershipsPage.lead}>
         <Button href={brand.partnershipHref} size="lg">
           Email our partnerships team

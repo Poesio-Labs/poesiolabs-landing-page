@@ -1,9 +1,10 @@
 import { faqs } from "@/content/site";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/Accordion";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { SectionMoreLink, type MoreLink } from "@/components/ui/SectionMoreLink";
 import { SplitHeading } from "@/components/ui/SplitHeading";
 
-export function Faq() {
+export function Faq({ moreLink }: { moreLink?: MoreLink } = {}) {
   return (
     <section className="faq section" id="faqs">
       <div className="container">
@@ -22,6 +23,7 @@ export function Faq() {
             ))}
           </Accordion>
         </div>
+        <SectionMoreLink link={moreLink} />
       </div>
     </section>
   );

@@ -1,3 +1,4 @@
+import { JsonLd } from "@/components/JsonLd";
 import { Approach } from "@/components/sections/Approach";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { PageHeader } from "@/components/sections/PageHeader";
@@ -8,13 +9,20 @@ import { SectionLabel } from "@/components/ui/SectionLabel";
 import { SplitHeading } from "@/components/ui/SplitHeading";
 import { servicesPage } from "@/content/pages";
 import { brand } from "@/content/site";
-import { pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata = pageMetadata({ ...servicesPage, path: "/services" });
+export const metadata = pageMetadata({
+  title: servicesPage.seoTitle,
+  description: servicesPage.description,
+  path: "/services",
+  hasOwnImage: true,
+  imageAlt: `Poesio Labs — ${servicesPage.heading}`,
+});
 
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd("Services", "/services")} />
       <PageHeader eyebrow={servicesPage.eyebrow} heading={servicesPage.heading} lead={servicesPage.lead}>
         <Button href={brand.ctaHref} size="lg">
           {brand.ctaLabel}

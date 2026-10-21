@@ -5,6 +5,7 @@ import type { PointerEvent } from "react";
 import { approachSteps } from "@/content/site";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/Card";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { SectionMoreLink, type MoreLink } from "@/components/ui/SectionMoreLink";
 import { SplitHeading } from "@/components/ui/SplitHeading";
 
 const trackPointer = (event: PointerEvent<HTMLElement>) => {
@@ -13,7 +14,7 @@ const trackPointer = (event: PointerEvent<HTMLElement>) => {
   event.currentTarget.style.setProperty("--my", `${event.clientY - rect.top}px`);
 };
 
-export function Approach() {
+export function Approach({ moreLink }: { moreLink?: MoreLink } = {}) {
   return (
     <section className="approach section" id="approach">
       <div className="container">
@@ -49,6 +50,7 @@ export function Approach() {
             </motion.li>
           ))}
         </motion.ol>
+        <SectionMoreLink link={moreLink} />
       </div>
     </section>
   );

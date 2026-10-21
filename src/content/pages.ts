@@ -1,13 +1,15 @@
 import type { IconName } from "@/components/ui/Icon";
 
 export const homePage = {
-  title: "Poesio Labs — Engineering the digital future",
+  seoTitle: "Poesio Labs | Software Development & Digital Products",
   description:
-    "Poesio Labs is a software development company that combines research, design, engineering, and technology to turn complex problems into useful digital products and systems.",
+    "Poesio Labs is a software development company combining research, design, and engineering to turn complex problems into useful digital products and systems.",
+  ogTitle: "Engineering the digital future",
+  ogLead: "We build better systems, and experiences that solve real problems and move technology forward.",
 };
 
 export const aboutPage = {
-  title: "About",
+  seoTitle: "About Poesio Labs | Research, Design & Engineering",
   description:
     "Poesio Labs is a software development company creating digital products, systems, and experiences that solve real problems for businesses across industries.",
   eyebrow: "About Poesio Labs",
@@ -18,9 +20,9 @@ export const aboutPage = {
 };
 
 export const servicesPage = {
-  title: "Services",
+  seoTitle: "Software Development Services | Poesio Labs",
   description:
-    "Product research, tech solutions, digital systems, software development, and brand systems — Poesio Labs carries products from idea to launch and improves the ones already in use.",
+    "Product research, tech solutions, digital systems, software development, and brand systems, from first idea to launch and for products already in use.",
   eyebrow: "Services",
   heading: "From the first question to a product in use",
   lead: "We research, design, and engineer digital products, systems, and experiences — starting from the problem, not the technology.",
@@ -64,16 +66,16 @@ export const servicesPage = {
 };
 
 export const industriesPage = {
-  title: "Industries",
+  seoTitle: "Industries We Build Software For | Poesio Labs",
   description:
-    "Poesio Labs builds digital products and systems for healthcare, hospitality and travel, environment and sustainability, logistics, professional services, and media.",
+    "Digital products and systems for healthcare, hospitality and travel, environment and sustainability, logistics, professional services, and media.",
   eyebrow: "Industries We Serve",
   heading: "One Company, Multiple Industries",
   lead: "The same research, design, and engineering discipline, applied to the problems each industry actually faces.",
 };
 
 export const partnershipsPage = {
-  title: "Partnerships",
+  seoTitle: "Partnerships | Partner With Poesio Labs",
   description:
     "Partner with Poesio Labs on delivery, technology, and industry initiatives. Contact partnership@poesiolabs.com to start a conversation.",
   eyebrow: "Partnerships",
@@ -105,7 +107,7 @@ export const partnershipsPage = {
 };
 
 export const contactPage = {
-  title: "Contact",
+  seoTitle: "Contact Poesio Labs | Start a Project",
   description:
     "Contact Poesio Labs. Email info@poesiolabs.com for projects and general inquiries, or partnership@poesiolabs.com for partnerships.",
   eyebrow: "Contact",
@@ -132,7 +134,7 @@ export const legalNotice = "Draft — pending legal review. This page will be fi
 export const legalPages = {
   privacy: {
     title: "Privacy Policy",
-    description: "How Poesio Labs handles personal information on poesiolabs.com.",
+    description: "How Poesio Labs handles personal information on poesiolabs.com, including the details you share when you email us.",
     sections: [
       {
         heading: "What we collect",
@@ -150,7 +152,7 @@ export const legalPages = {
   },
   terms: {
     title: "Terms of Service",
-    description: "The terms that apply when you use poesiolabs.com.",
+    description: "The terms that apply when you use poesiolabs.com, the Poesio Labs company website.",
     sections: [
       {
         heading: "Use of this website",
@@ -172,7 +174,7 @@ export const legalPages = {
   },
   cookies: {
     title: "Cookie Policy",
-    description: "How poesiolabs.com uses cookies.",
+    description: "How poesiolabs.com uses cookies. The site sets no tracking or advertising cookies and uses no analytics tools.",
     sections: [
       {
         heading: "Cookies on this website",
